@@ -59,4 +59,33 @@ if(process[count].q == 2 && process[r].q == 1)
 {
 temp = process[count];
 process[count] = process[r];
-
+process[r] = temp;
+}}}}
+for(count = y; count < limit - 1; count++)
+{
+for(r = count + 1; r < limit; r++)
+{
+if(process[count].ready == 1 && process[r].ready == 1)
+{
+if(process[count].q == 1 && process[r].q == 1)
+{
+if(process[count].bt > process[r].bt)
+{
+temp = process[count];
+process[count] = process[r];
+process[r] = temp;
+}
+else
+{
+break;
+}}}}}
+printf("\nProcess[%d]:\tTime:\t%d To %d\n", process[y].pro_id, time, time + process[y].bt);
+time = time + process[y].bt;
+for(count = y; count < limit; count++)
+{
+if(process[count].ready == 1)
+{
+process[count].ready = 0;
+}}}
+return 0;
+}
